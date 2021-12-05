@@ -19,6 +19,7 @@
   ],
   "ignorePatterns": ["*.config.js", "node_modules/", "dist/"],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "on",
     "no-plusplus": "off",
     "no-console": "warn",
     "max-len": ["warn", { "code": 120 }],
