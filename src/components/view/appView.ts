@@ -17,7 +17,7 @@ export class AppView {
         this.news.draw(values);  //values: (20) [{…}, {…}, {…}, {…}...]
     }
 
-    drawSources(data: {status: string, sources: Array<object>}) {
+    drawSources(data: {status: string, sources:{category: string, country: string, description: string, id: string, language: string, name: string, url: string}[]}) {
         //data: {status: 'ok', sources: Array(128)}
         const values = data?.sources ? data?.sources : [];
         this.sources.draw(values);  //values: (128) [{…}, {…}, {…}, {…}...]
