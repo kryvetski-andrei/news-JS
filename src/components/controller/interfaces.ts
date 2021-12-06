@@ -1,31 +1,34 @@
+export interface IData {
+  articles: Article;
+  sources: Source;
+}
+
 export interface INews {
-  articles: IArticle;
+  articles: Article;
   status: string;
   totalResults: number;
 }
 
-export type IArticle = [{
+export interface ISources {
+  status: string;
+  sources?: Source;
+}
+
+export type Article = [{
   author: string; 
   content: string; 
   description: string; 
   publishedAt: string; 
-  source: Source;
+  source: {
+    id: string; 
+    name: string; 
+  };
   title: string; 
   url: string; 
   urlToImage: string; 
 }]
 
-export type Source = {
-  id: string; 
-  name: string; 
-}
-
-export type ISources = {
-  status: string;
-  sources?: ISource;
-}
-
-export type ISource = [{
+export type Source = [{
   category: string; 
   country: string; 
   description: string; 
@@ -35,9 +38,6 @@ export type ISource = [{
   url: string; 
 }]
 
-export interface IData {
-  articles: IArticle;
-  sources: ISource;
-}
+
 
 export type CallbackType <T> = (data?: T) => void

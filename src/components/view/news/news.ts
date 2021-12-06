@@ -1,8 +1,8 @@
-import { IArticle } from '../../controller/interfaces';
+import { Article } from '../../controller/interfaces';
 import './news.css';
 
 class News {
-    draw(data: IArticle | never[]) {
+    draw(data: Article | never[]) {
         console.log(data, 'data from News') //(20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
         console.log(news, 'news from News') //(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}] 
