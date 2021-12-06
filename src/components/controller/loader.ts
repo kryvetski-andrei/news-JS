@@ -1,21 +1,8 @@
-import { CallbackType, INews, ISources } from './interfaces';
-
-export type Some = {
-  body: ReadableStream<Uint8Array> | null;
-  bodyUsed: boolean;
-  headers: Headers;
-  ok: boolean;
-  redirected: boolean;
-  status: number;
-  statusText: string;
-  type: ResponseType;
-  url: string;
-  json(): Promise<INews>;
-};
+import { CallbackType, INews, ISources, Response } from './interfaces';
 
 class Loader {
-  baseLink: string;
-  options: { apiKey: string };
+  private baseLink: string;
+  private options: { apiKey: string };
 
   constructor(baseLink: string, options: { apiKey: string }) {
     this.baseLink = baseLink;
@@ -31,7 +18,7 @@ class Loader {
     this.load('GET', endpoint, callback, options);
   }
 
-  errorHandler(res: Some) {
+  errorHandler(res: Response) {
     if (!res.ok) {
       if (res.status === 401 || res.status === 404)
         console.error(`Sorry, but there is ${res.status} error: ${res.statusText}`);
