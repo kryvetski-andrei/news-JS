@@ -15,24 +15,14 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier"
+    "prettier", 
+    "import"
   ],
   "ignorePatterns": ["*.config.js", "node_modules/", "dist/"],
   "rules": {
-    "@typescript-eslint/no-explicit-any": "on",
-    "no-plusplus": "off",
-    "no-console": "warn",
-    "max-len": ["warn", { "code": 120 }],
-    "indent": ["warn", 2, {
-      "SwitchCase": 1
-    }],
-    "@typescript-eslint/indent": ["warn", 2, {
-      "SwitchCase": 1
-    }],
-    "prettier/prettier": ["error"],
-    "import/prefer-default-export": "off",
-    "no-param-reassign": ["error", {
-      "props": false
-    }]
+    "no-debugger": "off",
+    "no-console": 0,
+    "class-methods-use-this": "off",
+    "semi": 1
   }
 }
