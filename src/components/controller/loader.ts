@@ -1,4 +1,4 @@
-import { CallbackType, INews, ISources, Response } from './interfaces';
+import { CallbackType, INews, ISources} from './interfaces';
 
 class Loader {
   private baseLink: string;

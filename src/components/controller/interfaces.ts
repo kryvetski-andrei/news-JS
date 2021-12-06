@@ -14,19 +14,6 @@ export interface ISources {
   sources?: Source;
 }
 
-export type Response = {
-  body: ReadableStream<Uint8Array> | null;
-  bodyUsed: boolean;
-  headers: Headers;
-  ok: boolean;
-  redirected: boolean;
-  status: number;
-  statusText: string;
-  type: ResponseType;
-  url: string;
-  json(): Promise<INews>;
-};
-
 export type Article = [
   {
     author: string;
