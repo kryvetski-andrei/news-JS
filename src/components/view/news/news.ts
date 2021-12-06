@@ -1,5 +1,4 @@
-
-import { IArticle } from '../../controller/controller';
+import { IArticle } from '../../controller/interfaces';
 import './news.css';
 
 class News {

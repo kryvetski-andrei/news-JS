@@ -1,4 +1,4 @@
-import { ISource } from '../../controller/controller';
+import { ISource } from '../../controller/interfaces';
 import './sources.css';
 
 class Sources {

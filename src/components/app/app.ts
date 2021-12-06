@@ -1,6 +1,5 @@
-import AppController, { CallbackType, INews } from '../controller/controller';
+import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-
 
 class App {
     controller: AppController;

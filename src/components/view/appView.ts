@@ -1,4 +1,4 @@
-import { IData, INews, ISources } from '../controller/controller';
+import { INews, ISources } from '../controller/interfaces';
 import News from './news/news';
 import Sources from './sources/sources';
 

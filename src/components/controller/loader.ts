@@ -1,7 +1,6 @@
-import { CallbackType, IData, INews, ISources} from "./controller";
-
-
 //{body: ReadableStream<Uint8Array> | null, bodyUsed: boolean, headers: Headers, ok: boolean, redirected: boolean, status: number, statusText: string, type: ResponseType, url: string, json(): Promise<string>}
+
+import { CallbackType, INews, ISources } from "./interfaces";
 
 export type Some = {
   body: ReadableStream<Uint8Array> | null; 
