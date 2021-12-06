@@ -1,3 +1,22 @@
+import { CallbackType, IData, INews, ISources} from "./controller";
+
+
+//{body: ReadableStream<Uint8Array> | null, bodyUsed: boolean, headers: Headers, ok: boolean, redirected: boolean, status: number, statusText: string, type: ResponseType, url: string, json(): Promise<string>}
+
+export type Some = {
+  body: ReadableStream<Uint8Array> | null; 
+  bodyUsed: boolean;
+  headers: Headers;
+  ok: boolean;
+  redirected: boolean; 
+  status: number; 
+  statusText: string; 
+  type: ResponseType; 
+  url: string; 
+  json(): Promise<INews>;
+}
+
+
 class Loader {
     baseLink: string;
     options: {apiKey: string}
@@ -8,14 +27,14 @@ class Loader {
 
     getResp(
         { endpoint = '', options = {} },
-        callback = () => {
+        callback: CallbackType<INews> | CallbackType<ISources> = (): void => {
             console.error('No callback for GET response');
         }
     ) {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: {body: ReadableStream<Uint8Array> | null, bodyUsed: boolean, headers: Headers, ok: boolean, redirected: boolean, status: number, statusText: string, type: ResponseType, url: string, json(): Promise<string>}) {
+    errorHandler(res: Some) {
         console.log(res, 'reeeeeeees')
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
@@ -38,12 +57,14 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: { (): void; (arg0: string): void; }, options = {}) {
+    load(method: string, endpoint: string, callback: CallbackType<INews> | CallbackType<ISources>, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
             .then((data) => callback(data))
             .catch((err) => console.error(err));
+
+            
     }
 }
 

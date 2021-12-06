@@ -1,7 +1,9 @@
+
+import { IArticle } from '../../controller/controller';
 import './news.css';
 
 class News {
-    draw(data: {author: string, content: string, description: string, publishedAt: string,  source: {id: string, name: string}, title: string, url: string, urlToImage: string}[]) {
+    draw(data: IArticle | never[]) {
         console.log(data, 'data from News') //(20) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
         console.log(news, 'news from News') //(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}] 

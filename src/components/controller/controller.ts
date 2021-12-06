@@ -1,16 +1,61 @@
+export interface INews {
+  articles: IArticle;
+  status: string;
+  totalResults: number;
+}
+
+export type IArticle = [{
+  author: string; 
+  content: string; 
+  description: string; 
+  publishedAt: string; 
+  source: Source;
+  title: string; 
+  url: string; 
+  urlToImage: string; 
+}]
+
+export type Source = {
+  id: string; 
+  name: string; 
+}
+
+export type ISources = {
+  status: string;
+  sources?: ISource;
+}
+
+export type ISource = [{
+  category: string; 
+  country: string; 
+  description: string; 
+  id: string; 
+  language: string; 
+  name: string; 
+  url: string; 
+}]
+
+export interface IData {
+  articles: IArticle;
+  sources: ISource;
+}
+
+export type CallbackType <T> = (data?: T) => void
+
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback: (() => void)) {
+    getSources(callback: CallbackType<ISources>) {
         super.getResp(
             {
                 endpoint: 'sources',
             },
-            callback
+            callback 
         );
     }
 
-    getNews(e: Event, callback: (() => void)) {
+    getNews(e: Event, callback: CallbackType<INews>) {
+
         let target = <HTMLElement>e.target;
         const newsContainer = <HTMLElement>e.currentTarget;
 
